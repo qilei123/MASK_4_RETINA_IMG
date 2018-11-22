@@ -44,6 +44,7 @@ def get_image(roidb, scale=False):
         new_rec['im_info'] = im_info
         processed_roidb.append(new_rec)
     print 'get image test'
+    print scale
     return processed_ims, processed_roidb
 
 
