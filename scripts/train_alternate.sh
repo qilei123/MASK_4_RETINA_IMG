@@ -3,8 +3,8 @@ export PYTHONUNBUFFERED=1
 export MXNET_ENABLE_GPU_P2P=0
 export PYTHONPATH=${PYTHONPATH}:incubator-mxnet/python/
 
-TRAIN_DIR=model/res50-fpn/cityscape/alternate/
-DATASET=Cityscape
+TRAIN_DIR=/home/qileimail123/data0/RetinaImg/ROP_COCO/output/baseline2/
+DATASET=coco
 SET=train
 TEST_SET=val
 mkdir -p ${TRAIN_DIR}
