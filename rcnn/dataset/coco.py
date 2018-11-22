@@ -95,9 +95,10 @@ class coco(IMDB):
         :param root_path: 'data', will write 'rpn_data', 'cache'
         :param data_path: 'data/coco'
         """
-        super(coco, self).__init__('COCO', image_set, root_path, data_path, result_path)
+        super(coco, self).__init__('COCO', image_set, root_path, data_path)
         self.root_path = root_path
         self.data_path = data_path
+        self.result_path = result_path
         self.coco = COCO(self._get_ann_file())
 
         # deal with class names
