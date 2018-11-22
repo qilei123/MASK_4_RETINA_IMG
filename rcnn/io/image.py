@@ -31,6 +31,7 @@ def get_image(roidb, scale=False):
             scale_range = config.TRAIN.SCALE_RANGE
             print scale_range
             im_scale = npr.uniform(scale_range[0], scale_range[1])
+            print im_scale
             im = cv2.resize(im, None, None, fx=im_scale, fy=im_scale, interpolation=cv2.INTER_LINEAR)
         else:
             scale_ind = random.randrange(len(config.SCALES))
