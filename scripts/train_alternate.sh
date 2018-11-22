@@ -5,8 +5,8 @@ export PYTHONPATH=${PYTHONPATH}:incubator-mxnet/python/
 
 TRAIN_DIR=/home/qileimail123/data0/RetinaImg/ROP_COCO/output/baseline2/
 DATASET=coco
-SET=/home/qileimail123/data0/RetinaImg/ROP_COCO/train2014
-TEST_SET=/home/qileimail123/data0/RetinaImg/ROP_COCO/val2014
+SET=train2014
+TEST_SET=val2014
 mkdir -p ${TRAIN_DIR}
 
 # Train
