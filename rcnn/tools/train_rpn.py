@@ -108,10 +108,7 @@ def train_rpn(network, dataset, image_set, root_path, dataset_path,
         fixed_param_prefix = config.FIXED_PARAMS_SHARED
     else:
         fixed_param_prefix = config.FIXED_PARAMS
-    mod = MutableModule(sym, data_names=data_names, label_names=label_names,
-                        logger=logger, context=ctx, work_load_list=work_load_list,
-                        max_data_shapes=max_data_shape, max_label_shapes=max_label_shape,
-                        fixed_param_prefix=fixed_param_prefix)
+
 
     # decide training params
     # metric
@@ -143,6 +140,10 @@ def train_rpn(network, dataset, image_set, root_path, dataset_path,
                         'clip_gradient': 5}
     print 'start train'
     # train
+    mod = MutableModule(sym, data_names=data_names, label_names=label_names,
+                        logger=logger, context=ctx, work_load_list=work_load_list,
+                        max_data_shapes=max_data_shape, max_label_shapes=max_label_shape,
+                        fixed_param_prefix=fixed_param_prefix)    
     mod.fit(train_data, eval_metric=eval_metrics, epoch_end_callback=epoch_end_callback,
             batch_end_callback=batch_end_callback, kvstore=kvstore,
             optimizer='sgd', optimizer_params=optimizer_params,
