@@ -16,7 +16,7 @@ config.FIXED_PARAMS_SHARED = ['conv0', 'stage1', 'stage2', 'stage3', 'stage4',
                               'gamma', 'beta']
 
 # dataset related params
-config.NUM_CLASSES = 9
+config.NUM_CLASSES = 12
 config.SCALES = [(1024, 2048)]  # first is scale (the shorter side); second is max size
 config.ANCHOR_SCALES = (8,)
 config.ANCHOR_RATIOS = (0.5, 1, 2)
@@ -107,11 +107,11 @@ default.pretrained = 'model/resnet-50'
 default.pretrained_epoch = 0
 default.base_lr = 0.004
 # default dataset
-default.dataset = 'Cityscape'
+default.dataset = 'coco'
 default.image_set = 'train'
 default.test_image_set = 'val'
-default.root_path = 'data'
-default.dataset_path = 'data/cityscape'
+default.root_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO'
+default.dataset_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO'
 # default training
 default.frequent = 20
 default.kvstore = 'device'
