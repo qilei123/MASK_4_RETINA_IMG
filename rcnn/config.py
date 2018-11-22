@@ -110,8 +110,8 @@ default.base_lr = 0.004
 default.dataset = 'coco'
 default.image_set = 'train'
 default.test_image_set = 'val'
-default.root_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO'
-default.dataset_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO'
+default.root_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO1'
+default.dataset_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO1'
 # default training
 default.frequent = 20
 default.kvstore = 'device'
@@ -164,8 +164,8 @@ dataset.coco = edict()
 dataset.coco.dataset = 'coco'
 dataset.coco.image_set = 'train2014'
 dataset.coco.test_image_set = 'val2014'
-dataset.coco.root_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO'
-dataset.coco.dataset_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO'
+dataset.coco.root_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO1'
+dataset.coco.dataset_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO1'
 dataset.coco.NUM_CLASSES = 12
 dataset.coco.NUM_IMAGES_USING = -1
 
