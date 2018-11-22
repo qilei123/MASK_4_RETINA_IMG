@@ -1,7 +1,6 @@
 import numpy as np
 from ..config import config
-from ..dataset import *
-from ..dataset import coco
+from dataset import *
 import pdb
 
 def load_gt_roidb(dataset_name, image_set_name, root_path, dataset_path,
