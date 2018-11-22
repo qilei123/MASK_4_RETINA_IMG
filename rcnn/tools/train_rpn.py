@@ -141,7 +141,7 @@ def train_rpn(network, dataset, image_set, root_path, dataset_path,
                         'lr_scheduler': lr_scheduler,
                         'rescale_grad': (1.0 / batch_size),
                         'clip_gradient': 5}
-
+    print 'start train'
     # train
     mod.fit(train_data, eval_metric=eval_metrics, epoch_end_callback=epoch_end_callback,
             batch_end_callback=batch_end_callback, kvstore=kvstore,
