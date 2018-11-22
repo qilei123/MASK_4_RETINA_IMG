@@ -31,7 +31,7 @@ config.TRAIN.BATCH_IMAGES = 1
 config.TRAIN.ASPECT_GROUPING = True
 
 # scale
-config.TRAIN.SCALE = True
+config.TRAIN.SCALE = False
 config.TRAIN.SCALE_RANGE = (0.8, 1)
 
 # R-CNN
