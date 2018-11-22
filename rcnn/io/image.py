@@ -44,7 +44,7 @@ def get_image(roidb, scale=False):
         new_rec['im_info'] = im_info
         processed_roidb.append(new_rec)
         print processed_ims[i].shape
-        print size(processed_roidb[i]
+        print size(processed_roidb[i])
     print 'get image test'
 
     return processed_ims, processed_roidb
