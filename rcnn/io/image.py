@@ -43,7 +43,7 @@ def get_image(roidb, scale=False):
         new_rec['boxes'] = roi_rec['boxes'].copy() * im_scale
         new_rec['im_info'] = im_info
         processed_roidb.append(new_rec)
-
+    print 'get image test'
     return processed_ims, processed_roidb
 
 
