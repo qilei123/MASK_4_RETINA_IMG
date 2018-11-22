@@ -29,6 +29,7 @@ def get_image(roidb, scale=False):
         new_rec = roi_rec.copy()
         if scale:
             scale_range = config.TRAIN.SCALE_RANGE
+            print scale_range
             im_scale = npr.uniform(scale_range[0], scale_range[1])
             im = cv2.resize(im, None, None, fx=im_scale, fy=im_scale, interpolation=cv2.INTER_LINEAR)
         else:
