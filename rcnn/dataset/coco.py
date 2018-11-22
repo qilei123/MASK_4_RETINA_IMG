@@ -234,8 +234,8 @@ class coco(IMDB):
                 overlaps[ix, :] = -1.0
             else:
                 overlaps[ix, cls] = 1.0
-
-        roi_rec = {'image': self.image_path_from_index(index),
+        image_path = os.path.join(self.data_path, self.data_name, im_ann['file_name'])
+        roi_rec = {'image': image_path,
                    'height': height,
                    'width': width,
                    'boxes': boxes,
@@ -308,8 +308,8 @@ class coco(IMDB):
                 overlaps[ix, :] = -1.0
             else:
                 overlaps[ix, cls] = 1.0
-
-        sds_rec = {'image': self.image_path_from_index(index),
+        image_path = os.path.join(self.data_path, self.data_name, im_ann['file_name'])
+        sds_rec = {'image': image_path,
                    'height': height,
                    'width': width,
                    'boxes': boxes,
