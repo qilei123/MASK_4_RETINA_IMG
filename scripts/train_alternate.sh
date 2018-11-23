@@ -19,5 +19,5 @@ python train_alternate_mask_fpn.py \
     --prefix ${TRAIN_DIR} \
     --pretrained_epoch 0 \
     --resume True \
-    --gpu 0,1 & tee -a ${TRAIN_DIR}/train.log
+    --gpu 0,1,2,3 & tee -a ${TRAIN_DIR}/train.log
 

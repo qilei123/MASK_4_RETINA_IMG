@@ -18,7 +18,7 @@ def alternate_train(args, ctx, pretrained, epoch,
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     # basic config
-    begin_epoch = 0
+    begin_epoch = 8
     config.TRAIN.BG_THRESH_LO = 0.0
 
     # model path
