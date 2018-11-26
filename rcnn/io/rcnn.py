@@ -135,7 +135,7 @@ def get_fpn_maskrcnn_batch(roidb):
         overlaps = roi_rec['max_overlaps']
         bbox_targets = roi_rec['bbox_targets']
         im_info = roi_rec['im_info']
-        print roi_rec
+
         mask_targets = roi_rec['mask_targets']
         mask_labels = roi_rec['mask_labels']
         mask_inds = roi_rec['mask_inds']

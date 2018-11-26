@@ -62,7 +62,7 @@ def train_maskrcnn(network, dataset, image_set, root_path, dataset_path,
                                       proposal=proposal, append_gt=True, flip=not no_flip)
                   for image_set in image_sets]
         roidb = merge_roidb(roidbs)
-
+        print roidb[0]
         def filter_roidb(roidb):
             """ remove roidb entries without usable rois """
 
