@@ -277,6 +277,7 @@ class coco(IMDB):
         :param index: coco image id
         :return: roidb entry
         """
+        print index
         im_ann = self.coco.loadImgs(index)[0]
         width = im_ann['width']
         height = im_ann['height']
