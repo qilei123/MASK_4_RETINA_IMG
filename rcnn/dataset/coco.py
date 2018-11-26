@@ -131,6 +131,7 @@ class coco(IMDB):
     def _load_image_set_index(self):
         """ image id: int """
         image_ids = self.coco.getImgIds()
+        image_ids = 7705
         return image_ids
 
     def image_path_from_index(self, index):
