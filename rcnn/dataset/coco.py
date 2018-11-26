@@ -112,8 +112,6 @@ class coco(IMDB):
 
         # load image file names
         self.image_set_index = self._load_image_set_index()[:dataset.coco.NUM_IMAGES_USING]
-        for sh in self.image_set_index:
-            print sh
         self.num_images = len(self.image_set_index)
         logger.info('%s num_images %d' % (self.name, self.num_images))
         self.mask_size = mask_size
@@ -319,7 +317,7 @@ class coco(IMDB):
                    'gt_overlaps': overlaps,
                    'max_classes': overlaps.argmax(axis=1),
                    'max_overlaps': overlaps.max(axis=1),
-                   'ins_seg': self.mask_path_from_index(index),
+                   'cache_seg_inst': self.mask_path_from_index(index),
                    'flipped': False}
         return sds_rec, objs
 
