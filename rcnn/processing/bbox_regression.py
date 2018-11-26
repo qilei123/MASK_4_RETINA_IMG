@@ -4,6 +4,7 @@ This file has functions about generating bounding box regression targets
 from ..pycocotools.mask import encode
 import numpy as np
 
+import hickle as hkl
 from bbox_transform import bbox_overlaps, nonlinear_transform
 from rcnn.config import config
 import math
@@ -102,6 +103,20 @@ def add_bbox_regression_targets(roidb):
     return means.ravel(), stds.ravel()
 
 
+def get_gt_masks(gt_mask_file):
+    """
+    This function load cached gt_masks from .hkl
+    :param roidb:
+    :return:
+    """
+    #assert os.path.exists(gt_mask_file), '%s does not exist'.format(gt_mask_file)
+    gt_masks = hkl.load(gt_mask_file)
+    num_mask = gt_masks.shape[0]
+    processed_masks = np.zeros((num_mask, gt_masks.shape[1], gt_masks.shape[2]))
+    for i in range(num_mask):
+        processed_masks[i,:,:] = cv2.resize(gt_masks[i].astype('float'), (size[1], size[0]))
+    return processed_masks
+
 
 def compute_mask_and_label(ex_rois, ex_labels, seg, flipped):
     # assert os.path.exists(seg_gt), 'Path does not exist: {}'.format(seg_gt)
@@ -109,9 +124,12 @@ def compute_mask_and_label(ex_rois, ex_labels, seg, flipped):
     # pixel = list(im.getdata())
     # pixel = np.array(pixel).reshape([im.size[1], im.size[0]])
     print seg
+    '''
     im = Image.open(seg)
     pixel = list(im.getdata())
     ins_seg = np.array(pixel).reshape([im.size[1], im.size[0]])
+    '''
+    ins_seg = get_gt_masks(seg)
     if flipped:
         ins_seg = ins_seg[:, ::-1]
     rois = ex_rois
