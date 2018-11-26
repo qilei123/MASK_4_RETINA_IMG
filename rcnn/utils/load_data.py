@@ -17,7 +17,7 @@ def load_proposal_roidb(dataset_name, image_set_name, root_path, dataset_path,
                         proposal='rpn', append_gt=True, flip=False):
     """ load proposal roidb (append_gt when training) """
     imdb = eval(dataset_name)(image_set_name, root_path, dataset_path)
-    gt_roidb = imdb.gt_roidb()
+    gt_roidb = imdb.gt_sdsdb()
     roidb = eval('imdb.' + proposal + '_roidb')(gt_roidb, append_gt)
     if flip:
         roidb = imdb.append_flipped_images(roidb)

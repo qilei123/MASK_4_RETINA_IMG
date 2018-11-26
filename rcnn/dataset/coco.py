@@ -149,7 +149,7 @@ class coco(IMDB):
             logger.info('%s gt roidb loaded from %s' % (self.name, cache_file))
             return roidb
 
-        gt_roidb = [self.load_coco_sds_annotation(index) for index in self.image_set_index]
+        gt_roidb = [self._load_coco_annotation(index) for index in self.image_set_index]
         print gt_roidb[0]
         with open(cache_file, 'wb') as fid:
             cPickle.dump(gt_roidb, fid, cPickle.HIGHEST_PROTOCOL)
@@ -162,13 +162,13 @@ class coco(IMDB):
         :return:
         """
         cache_file = os.path.join(self.cache_path, self.name + '_gt_sdsdb.pkl')
-        """
+        
         if os.path.exists(cache_file):
             with open(cache_file, 'rb') as fid:
                 sdsdb = cPickle.load(fid)
             print '{} gt sdsdb loaded from {}'.format(self.name, cache_file)
             return sdsdb
-        """
+        
         # for internal useage
         tic();
         gt_sdsdb_temp = [self.load_coco_sds_annotation(index) for index in self.image_set_index]
@@ -183,10 +183,10 @@ class coco(IMDB):
         pool.join()
         print 'generate cache_seg_inst using', toc(), 'seconds';
 
-        """
+        
         with open(cache_file, 'wb') as fid:
             cPickle.dump(gt_sdsdb, fid, cPickle.HIGHEST_PROTOCOL)
-        """
+        
         # for future release usage
         # need to implement load sbd data
         return gt_sdsdb
