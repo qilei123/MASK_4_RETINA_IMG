@@ -45,7 +45,7 @@ def train_maskrcnn(network, dataset, image_set, root_path, dataset_path,
         mean_file = root_path + '/cache/' + dataset + '_roidb_mean_' + maskrcnn_stage + '.pkl'
         std_file = root_path + '/cache/' + dataset + '_roidb_std_' + maskrcnn_stage + '.pkl'
 
-    if not (osp.exists(roidb_file) and osp.exists(mean_file) and osp.exists(std_file)):
+    if osp.exists(roidb_file) and osp.exists(mean_file) and osp.exists(std_file):
         print 'Load ' + roidb_file
         with open(roidb_file, 'r') as f:
             roidb = pkl.load(f)
