@@ -55,7 +55,7 @@ def train_maskrcnn(network, dataset, image_set, root_path, dataset_path,
         print 'Load ' + std_file
         with open(std_file, 'r') as f:
             stds = pkl.load(f)
-    else:
+    #else:
         # load dataset and prepare imdb for training
         image_sets = [iset for iset in image_set.split('+')]
         roidbs = [load_proposal_roidb(dataset, image_set, root_path, dataset_path,
