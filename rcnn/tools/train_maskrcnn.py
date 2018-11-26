@@ -88,7 +88,6 @@ def train_maskrcnn(network, dataset, image_set, root_path, dataset_path,
         for file, obj in zip([roidb_file, mean_file, std_file], [roidb, means, stds]):
             with open(file, 'w') as f:
                 pkl.dump(obj, f, -1)
-        print roidb[0]
     # load training data
     train_data = MaskROIIter(roidb, batch_size=input_batch_size, shuffle=not no_shuffle,
                              ctx=ctx, work_load_list=work_load_list, aspect_grouping=config.TRAIN.ASPECT_GROUPING)
