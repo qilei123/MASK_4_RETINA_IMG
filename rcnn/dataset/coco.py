@@ -319,7 +319,7 @@ class coco(IMDB):
                    'gt_overlaps': overlaps,
                    'max_classes': overlaps.argmax(axis=1),
                    'max_overlaps': overlaps.max(axis=1),
-                   'cache_seg_inst': self.mask_path_from_index(index),
+                   'ins_seg': self.mask_path_from_index(index),
                    'flipped': False}
         return sds_rec, objs
 
