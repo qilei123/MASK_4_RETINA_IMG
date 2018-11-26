@@ -148,7 +148,7 @@ class coco(IMDB):
             logger.info('%s gt roidb loaded from %s' % (self.name, cache_file))
             return roidb
 
-        gt_roidb = [self._load_coco_annotation(index) for index in self.image_set_index]
+        gt_roidb = [self.load_coco_sds_annotation(index) for index in self.image_set_index]
         with open(cache_file, 'wb') as fid:
             cPickle.dump(gt_roidb, fid, cPickle.HIGHEST_PROTOCOL)
         logger.info('%s wrote gt roidb to %s' % (self.name, cache_file))
