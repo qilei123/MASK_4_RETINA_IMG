@@ -112,6 +112,8 @@ class coco(IMDB):
 
         # load image file names
         self.image_set_index = self._load_image_set_index()[:dataset.coco.NUM_IMAGES_USING]
+        for sh in self.image_set_index:
+            print sh
         self.num_images = len(self.image_set_index)
         logger.info('%s num_images %d' % (self.name, self.num_images))
         self.mask_size = mask_size
@@ -131,7 +133,6 @@ class coco(IMDB):
     def _load_image_set_index(self):
         """ image id: int """
         image_ids = self.coco.getImgIds()
-        image_ids = 7705
         return image_ids
 
     def image_path_from_index(self, index):
