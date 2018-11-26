@@ -108,6 +108,7 @@ def compute_mask_and_label(ex_rois, ex_labels, seg, flipped):
     # im = Image.open(seg_gt)
     # pixel = list(im.getdata())
     # pixel = np.array(pixel).reshape([im.size[1], im.size[0]])
+    print seg
     im = Image.open(seg)
     pixel = list(im.getdata())
     ins_seg = np.array(pixel).reshape([im.size[1], im.size[0]])
