@@ -72,7 +72,7 @@ def generate_cache_seg_inst_kernel(annWithObjs):
     """
     ann = annWithObjs[0]      # the dictionary
     objs = annWithObjs[1]     # objs
-    gt_mask_file = ann['cache_seg_inst']
+    gt_mask_file = ann['ins_seg']
     if not gt_mask_file:
         return
     gt_mask_flip_file = os.path.join(os.path.splitext(gt_mask_file)[0] + '_flip.hkl')
@@ -80,12 +80,13 @@ def generate_cache_seg_inst_kernel(annWithObjs):
         return
     gt_mask_encode = [x['segmentation'] for x in objs]
     gt_mask = mask_coco2voc(gt_mask_encode, ann['height'], ann['width'])
+    '''
     if not os.path.exists(gt_mask_file):
         hkl.dump(gt_mask.astype('bool'), gt_mask_file, mode='w', compression='gzip')
     # cache flip gt_masks
     if not os.path.exists(gt_mask_flip_file):
         hkl.dump(gt_mask[:, :, ::-1].astype('bool'), gt_mask_flip_file, mode='w', compression='gzip')
-
+    '''
 
 class coco(IMDB):
     def __init__(self, image_set, root_path, data_path, result_path=None, mask_size=-1, binary_thresh=None):
