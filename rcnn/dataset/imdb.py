@@ -106,6 +106,8 @@ class IMDB(object):
         :param gt_roidb: [image_index]['boxes', 'gt_classes', 'gt_overlaps', 'flipped']
         :return: roidb: [image_index]['boxes', 'gt_classes', 'gt_overlaps', 'flipped']
         """
+        print len(box_list)
+        print self.num_images
         assert len(box_list) == self.num_images, 'number of boxes matrix must match number of images'
         roidb = []
         for i in range(self.num_images):
