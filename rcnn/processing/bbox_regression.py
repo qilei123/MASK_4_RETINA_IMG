@@ -143,9 +143,6 @@ def compute_mask_and_label(ex_rois, ex_labels, seg, flipped):
         ins_id = 0
         max_count = 0
         for id in ids:
-            print n
-            print label
-            print class_id
             if math.floor(id / 1000) == class_id[int(label[int(n)])]:
                 px = np.where(ins_seg == int(id))
                 x_min = np.min(px[1])
