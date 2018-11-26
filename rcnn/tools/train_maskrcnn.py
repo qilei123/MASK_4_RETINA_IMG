@@ -55,7 +55,8 @@ def train_maskrcnn(network, dataset, image_set, root_path, dataset_path,
         print 'Load ' + std_file
         with open(std_file, 'r') as f:
             stds = pkl.load(f)
-    #else:
+    '''
+    else:
         # load dataset and prepare imdb for training
         image_sets = [iset for iset in image_set.split('+')]
         roidbs = [load_proposal_roidb(dataset, image_set, root_path, dataset_path,
@@ -84,6 +85,7 @@ def train_maskrcnn(network, dataset, image_set, root_path, dataset_path,
         roidb = filter_roidb(roidb)
         means, stds = add_bbox_regression_targets(roidb)
         add_assign_targets(roidb)
+    '''
         add_mask_targets(roidb)
         for file, obj in zip([roidb_file, mean_file, std_file], [roidb, means, stds]):
             with open(file, 'w') as f:
