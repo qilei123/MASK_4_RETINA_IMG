@@ -55,10 +55,12 @@ def train_maskrcnn(network, dataset, image_set, root_path, dataset_path,
         print 'Load ' + std_file
         with open(std_file, 'r') as f:
             stds = pkl.load(f)
+        '''
         add_mask_targets(roidb)
         for file, obj in zip([roidb_file, mean_file, std_file], [roidb, means, stds]):
             with open(file, 'w') as f:
                 pkl.dump(obj, f, -1)
+        '''
     else:
         # load dataset and prepare imdb for training
         image_sets = [iset for iset in image_set.split('+')]
