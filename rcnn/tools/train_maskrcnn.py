@@ -55,6 +55,7 @@ def train_maskrcnn(network, dataset, image_set, root_path, dataset_path,
         print 'Load ' + std_file
         with open(std_file, 'r') as f:
             stds = pkl.load(f)
+        print roidb[0]
     else:
         # load dataset and prepare imdb for training
         image_sets = [iset for iset in image_set.split('+')]
@@ -62,7 +63,7 @@ def train_maskrcnn(network, dataset, image_set, root_path, dataset_path,
                                       proposal=proposal, append_gt=True, flip=not no_flip)
                   for image_set in image_sets]
         roidb = merge_roidb(roidbs)
-        print roidb[0]
+        
         def filter_roidb(roidb):
             """ remove roidb entries without usable rois """
 
