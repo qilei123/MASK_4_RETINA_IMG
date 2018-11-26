@@ -114,7 +114,7 @@ def get_gt_masks(gt_mask_file):
     num_mask = gt_masks.shape[0]
     processed_masks = np.zeros((num_mask, gt_masks.shape[1], gt_masks.shape[2]))
     for i in range(num_mask):
-        processed_masks[i,:,:] = cv2.resize(gt_masks[i].astype('float'), (size[1], size[0]))
+        processed_masks[i,:,:] = cv2.resize(gt_masks[i].astype('float'), (gt_masks.shape[2], gt_masks.shape[1]))
     return processed_masks
 
 
