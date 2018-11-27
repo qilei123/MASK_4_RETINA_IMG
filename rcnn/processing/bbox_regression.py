@@ -239,7 +239,7 @@ def add_mask_targets(roidb):
             flipped = roidb[im_i]['flipped']
             roidb[im_i]['mask_targets'], roidb[im_i]['mask_labels'], roidb[im_i]['mask_inds'] = \
                 compute_bbox_mask_targets_and_label(rois, max_overlaps, max_classes, ins_seg, flipped)
-    threads = [threading.Thread(target=process, args=()) for i in xrange(10)]
+    threads = [threading.Thread(target=process, args=()) for i in xrange(12)]
     for t in threads: t.start()
     for t in threads: t.join()
     '''
