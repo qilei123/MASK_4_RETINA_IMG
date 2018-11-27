@@ -225,6 +225,18 @@ def add_mask_targets(roidb):
     for im_i in range(num_images):
         im_quene.put(im_i)
 
+    im_i=7425
+    rois = roidb[im_i]['boxes']
+    max_overlaps = roidb[im_i]['max_overlaps']
+    max_classes = roidb[im_i]['max_classes']
+    if not roidb[im_i].has_key('ins_seg'):
+        print roidb
+    ins_seg = roidb[im_i]['ins_seg']
+    flipped = roidb[im_i]['flipped']
+    roidb[im_i]['mask_targets'], roidb[im_i]['mask_labels'], roidb[im_i]['mask_inds'] = \
+        compute_bbox_mask_targets_and_label(rois, max_overlaps, max_classes, ins_seg, flipped)
+
+    '''
     def process():
         while not im_quene.empty():
             im_i = im_quene.get()
@@ -241,6 +253,7 @@ def add_mask_targets(roidb):
     threads = [threading.Thread(target=process, args=()) for i in xrange(10)]
     for t in threads: t.start()
     for t in threads: t.join()
+    '''
     # Single thread
     # for im_i in range(num_images):
     #     print "-----processing img {}".format(im_i)
