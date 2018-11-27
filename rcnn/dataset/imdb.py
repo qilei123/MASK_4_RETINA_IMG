@@ -177,6 +177,7 @@ class IMDB(object):
                      'gt_overlaps': roidb[i]['gt_overlaps'],
                      'max_classes': roidb[i]['max_classes'],
                      'max_overlaps': roidb[i]['max_overlaps'],
+                     'ins_seg': roidb[i]['ins_seg'],
                      'flipped': True}
             roidb.append(entry)
 
