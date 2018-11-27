@@ -21,7 +21,7 @@ config.SCALES = [(1024, 2048)]  # first is scale (the shorter side); second is m
 config.ANCHOR_SCALES = (8,)
 config.ANCHOR_RATIOS = (0.5, 1, 2)
 config.NUM_ANCHORS = len(config.ANCHOR_SCALES) * len(config.ANCHOR_RATIOS)
-config.CLASS_ID = [0, 1, 2, 3, 4, 5, 6, 7, 8,9,10,11]
+config.CLASS_ID = [0, 1, 2, 3, 4, 5, 6, 7, 8,9,10]
 
 config.TRAIN = edict()
 
