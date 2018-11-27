@@ -16,12 +16,12 @@ config.FIXED_PARAMS_SHARED = ['conv0', 'stage1', 'stage2', 'stage3', 'stage4',
                               'gamma', 'beta']
 
 # dataset related params
-config.NUM_CLASSES = 11
+config.NUM_CLASSES = 12
 config.SCALES = [(1024, 2048)]  # first is scale (the shorter side); second is max size
 config.ANCHOR_SCALES = (8,)
 config.ANCHOR_RATIOS = (0.5, 1, 2)
 config.NUM_ANCHORS = len(config.ANCHOR_SCALES) * len(config.ANCHOR_RATIOS)
-config.CLASS_ID = [0, 1, 2, 3, 4, 5, 6, 7, 8,9,10]
+config.CLASS_ID = [0, 1, 2, 3, 4, 5, 6, 7, 8,9,10,11]
 
 config.TRAIN = edict()
 
@@ -166,7 +166,7 @@ dataset.coco.image_set = 'train2014'
 dataset.coco.test_image_set = 'val2014'
 dataset.coco.root_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO'
 dataset.coco.dataset_path = '/home/qileimail123/data0/RetinaImg/ROP_COCO'
-dataset.coco.NUM_CLASSES = 11
+dataset.coco.NUM_CLASSES = 12
 dataset.coco.NUM_IMAGES_USING = -1
 
 def generate_config(_network, _dataset):
