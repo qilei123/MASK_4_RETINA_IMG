@@ -245,7 +245,7 @@ def add_mask_targets(roidb):
     '''
     for im_i in range(num_images):
         if not roidb[im_i].has_key('ins_seg'):
-            print 'no ins_seg:'+im_i
+            print 'no ins_seg:'+str(im_i)
         else:
             print "-----processing img {}".format(im_i)       
     # Single thread
