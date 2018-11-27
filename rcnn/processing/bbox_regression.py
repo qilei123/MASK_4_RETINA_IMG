@@ -252,7 +252,7 @@ def add_mask_targets(roidb):
         ins_seg = roidb[im_i]['ins_seg']
         # roidb[im_i]['mask_targets'] = compute_bbox_mask_targets(rois, max_overlaps, max_classes, ins_seg)
         roidb[im_i]['mask_targets'], roidb[im_i]['mask_labels'], roidb[im_i]['mask_inds'] = \
-            compute_bbox_mask_targets_and_label(rois, max_overlaps, max_classes, ins_seg)
+            compute_bbox_mask_targets_and_label(rois, max_overlaps, max_classes, ins_seg,flipped)
 
 
 def expand_bbox_regression_targets(bbox_targets_data, num_classes):
