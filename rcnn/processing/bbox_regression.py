@@ -225,15 +225,6 @@ def add_mask_targets(roidb):
     for im_i in range(num_images):
         im_quene.put(im_i)
 
-    im_i=7425
-    rois = roidb[im_i]['boxes']
-    max_overlaps = roidb[im_i]['max_overlaps']
-    max_classes = roidb[im_i]['max_classes']
-    ins_seg = roidb[im_i]['ins_seg']
-    flipped = roidb[im_i]['flipped']
-    roidb[im_i]['mask_targets'], roidb[im_i]['mask_labels'], roidb[im_i]['mask_inds'] = \
-        compute_bbox_mask_targets_and_label(rois, max_overlaps, max_classes, ins_seg, flipped)
-
     '''
     def process():
         while not im_quene.empty():
@@ -253,15 +244,15 @@ def add_mask_targets(roidb):
     for t in threads: t.join()
     '''
     # Single thread
-    # for im_i in range(num_images):
-    #     print "-----processing img {}".format(im_i)
-    #     rois = roidb[im_i]['boxes']
-    #     max_overlaps = roidb[im_i]['max_overlaps']
-    #     max_classes = roidb[im_i]['max_classes']
-    #     ins_seg = roidb[im_i]['ins_seg']
-    #     # roidb[im_i]['mask_targets'] = compute_bbox_mask_targets(rois, max_overlaps, max_classes, ins_seg)
-    #     roidb[im_i]['mask_targets'], roidb[im_i]['mask_labels'], roidb[im_i]['mask_inds'] = \
-    #         compute_bbox_mask_targets_and_label(rois, max_overlaps, max_classes, ins_seg)
+    for im_i in range(num_images):
+        print "-----processing img {}".format(im_i)
+        rois = roidb[im_i]['boxes']
+        max_overlaps = roidb[im_i]['max_overlaps']
+        max_classes = roidb[im_i]['max_classes']
+        ins_seg = roidb[im_i]['ins_seg']
+        # roidb[im_i]['mask_targets'] = compute_bbox_mask_targets(rois, max_overlaps, max_classes, ins_seg)
+        roidb[im_i]['mask_targets'], roidb[im_i]['mask_labels'], roidb[im_i]['mask_inds'] = \
+            compute_bbox_mask_targets_and_label(rois, max_overlaps, max_classes, ins_seg)
 
 
 def expand_bbox_regression_targets(bbox_targets_data, num_classes):
