@@ -141,7 +141,7 @@ def get_fpn_maskrcnn_batch(roidb):
         mask_inds = roi_rec['mask_inds']
 
         assign_levels = roi_rec['assign_levels']
-
+        print 'num_classes:'+str(num_classes)
         im_rois_on_levels, labels_on_levels, bbox_targets_on_levels, bbox_weights_on_levels, mask_targets_on_levels, mask_weights_on_levels = \
             sample_rois_fpn(rois, assign_levels, fg_rois_per_image, rois_per_image, num_classes,
                             labels, overlaps, bbox_targets, mask_targets=mask_targets, mask_labels=mask_labels, mask_inds=mask_inds, im_info=im_info)
