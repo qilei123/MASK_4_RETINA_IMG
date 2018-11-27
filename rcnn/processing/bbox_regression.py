@@ -243,9 +243,13 @@ def add_mask_targets(roidb):
     for t in threads: t.start()
     for t in threads: t.join()
     '''
+    for im_i in range(num_images):
+        if not roidb[im_i].has_key('ins_seg'):
+            print roidb
+        else:
+            print "-----processing img {}".format(im_i)       
     # Single thread
     for im_i in range(num_images):
-        im_i =7417
         print "-----processing img {}".format(im_i)
         rois = roidb[im_i]['boxes']
         max_overlaps = roidb[im_i]['max_overlaps']
