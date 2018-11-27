@@ -232,6 +232,8 @@ def add_mask_targets(roidb):
             rois = roidb[im_i]['boxes']
             max_overlaps = roidb[im_i]['max_overlaps']
             max_classes = roidb[im_i]['max_classes']
+            if not roidb[im_i].has_key('ins_seg'):
+                print roidb
             ins_seg = roidb[im_i]['ins_seg']
             flipped = roidb[im_i]['flipped']
             roidb[im_i]['mask_targets'], roidb[im_i]['mask_labels'], roidb[im_i]['mask_inds'] = \
