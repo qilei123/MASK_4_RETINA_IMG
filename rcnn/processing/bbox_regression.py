@@ -229,7 +229,8 @@ def add_mask_targets(roidb):
     def process():
         while not im_quene.empty():
             im_i = im_quene.get()
-            print "-----process img {}".format(im_i)
+            if im_i%1000==0:
+                print "-----process img {}".format(im_i)
             rois = roidb[im_i]['boxes']
             max_overlaps = roidb[im_i]['max_overlaps']
             max_classes = roidb[im_i]['max_classes']
