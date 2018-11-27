@@ -272,6 +272,8 @@ class MaskROIIter(mx.io.DataIter):
                             [_rois, rois_pad])
                         data_on_imgs['img_%s' % im_i]['labels_on_levels']['stride%s' % s] = np.concatenate(
                             [_labels, labels_pad])
+                        print _bbox_targets.shape
+                        print bbox_targets_pad.shape
                         data_on_imgs['img_%s' % im_i]['bbox_targets_on_levels']['stride%s' % s] = np.concatenate(
                             [_bbox_targets, bbox_targets_pad])
                         data_on_imgs['img_%s' % im_i]['bbox_weights_on_levels']['stride%s' % s] = np.concatenate(
