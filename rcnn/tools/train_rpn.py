@@ -40,7 +40,7 @@ def train_rpn(network, dataset, image_set, root_path, dataset_path,
 
     # load dataset and prepare imdb for training
     image_sets = [iset for iset in image_set.split('+')]
-    roidbs = [load_gt_roidb(dataset, image_set, root_path, dataset_path,
+    roidbs = [load_proposal_roidb(dataset, image_set, root_path, dataset_path,
                             flip=not no_flip)
               for image_set in image_sets]
     roidb = merge_roidb(roidbs)
