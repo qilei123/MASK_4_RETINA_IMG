@@ -37,12 +37,13 @@ def alternate_train(args, ctx, pretrained, epoch,
                  ctx[0], model_path+'/rpn1', rpn_epoch,
                  vis=False, shuffle=False, thresh=0)
     '''
+    '''
     logging.info('########## TRAIN RCNN WITH IMAGENET INIT AND RPN DETECTION')
     train_maskrcnn(args.network, args.dataset, args.image_set, args.root_path, args.dataset_path,
                args.frequent, args.kvstore, args.work_load_list, args.no_flip, args.no_shuffle, args.resume,
                ctx, pretrained, epoch, model_path+'/rcnn1', begin_epoch, rcnn_epoch,
                train_shared=False, lr=rcnn_lr, lr_step=rcnn_lr_step, proposal='rpn', maskrcnn_stage='rcnn1')
-
+    '''
     logging.info('########## TRAIN RPN WITH RCNN INIT')
     train_rpn(args.network, args.dataset, args.image_set, args.root_path, args.dataset_path,
               args.frequent, args.kvstore, args.work_load_list, args.no_flip, args.no_shuffle, args.resume,
