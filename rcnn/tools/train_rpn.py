@@ -8,7 +8,7 @@ from ..symbol import *
 from ..core import callback, metric
 from ..core.loader import AnchorLoaderFPN
 from ..core.module import MutableModule
-from ..utils.load_data import load_gt_roidb, merge_roidb, filter_roidb
+from ..utils.load_data import load_gt_roidb, merge_roidb, filter_roidb,load_proposal_roidb
 from ..utils.load_model import load_param
 
 
